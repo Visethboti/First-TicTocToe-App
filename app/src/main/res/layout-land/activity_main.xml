@@ -10,12 +10,10 @@
     <TextView
         android:id="@+id/textView"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
+        android:layout_height="68dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="16dp"
         android:layout_marginBottom="8dp"
         android:gravity="center_horizontal|center_vertical"
         android:text="Sth Here"
@@ -23,25 +21,21 @@
         android:textSize="18sp"
         app:fontFamily="@font/francois_one"
         app:layout_constraintBottom_toTopOf="@+id/relativeHeader"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/relativebody"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <RelativeLayout
         android:id="@+id/relativeHeader"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="53dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginTop="16dp"
         android:gravity="center"
         android:minWidth="60dp"
         android:minHeight="60dp"
-        app:layout_constraintBottom_toTopOf="@+id/relativebody"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/relativebody"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView">
 
@@ -57,19 +51,17 @@
 
     <RelativeLayout
         android:id="@+id/relativebody"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginBottom="8dp"
+        android:layout_width="380dp"
+        android:layout_height="380dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="16dp"
         android:gravity="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/relativeHeader">
+        app:layout_constraintStart_toEndOf="@+id/relativeHeader"
+        app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
             android:id="@+id/imgBoard"
