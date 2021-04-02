@@ -13,6 +13,7 @@ public class MainActivity extends AppCompatActivity {
 
     boolean xTurn = true;
     int[] tableArray = new int[10];
+    int numTurn;
 
     public void clickFun(View view){
         ImageView currentImg = (ImageView) view;
@@ -28,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
             }
 
             xTurn = !xTurn;
+            numTurn++;
 
             // Move the img up out of the screen instantly
             currentImg.setY(-1000 + currentImg.getY());
@@ -36,14 +38,15 @@ public class MainActivity extends AppCompatActivity {
             currentImg.animate().alpha(1);
 
             // Move the img back down to the screen
-            currentImg.animate().translationYBy(1000).setDuration(2000);
+            currentImg.animate().translationYBy(1000).setDuration(0);
 
+            /* // For debugging
             String str = "tableArray:";
             int[] arr = check();
             for(int i = 0; i < 3; i++)
-            str += " " + arr[i];
+                str += " " + arr[i];
             Toast.makeText(this, str, Toast.LENGTH_SHORT).show();
-
+            */
 
             //Check if there is a winner
             int[] checkResult = check();
@@ -56,6 +59,13 @@ public class MainActivity extends AppCompatActivity {
                 else {
                     outputText.setText("o is the winner!");
                 }
+                outputText.animate().alpha(1).setDuration(1000);
+                restartButton.animate().alpha(1).setDuration(1000);
+            }
+            if(numTurn >= 9){
+                TextView outputText = (TextView) findViewById(R.id.textView);
+                Button restartButton = (Button) findViewById(R.id.buttonRestart);
+                outputText.setText("It's a draw!");
                 outputText.animate().alpha(1).setDuration(1000);
                 restartButton.animate().alpha(1).setDuration(1000);
             }
@@ -100,7 +110,7 @@ public class MainActivity extends AppCompatActivity {
             result = 0;
         }
 
-        //check cross \
+        //check cross
         for(int i = 0; i < 9; i+=4){
             if(tableArray[i] == 'x')
                 result += 1;
@@ -136,6 +146,7 @@ public class MainActivity extends AppCompatActivity {
     public void restartGame() {
         tableArray = new int[10];
         xTurn = true;
+        numTurn = 0;
 
         // Make restart button and text invisible
         TextView outputText = (TextView) findViewById(R.id.textView);
@@ -162,6 +173,10 @@ public class MainActivity extends AppCompatActivity {
         img.animate().alpha(0).setDuration(0);
         img = (ImageView) findViewById(R.id.imgView9);
         img.animate().alpha(0).setDuration(0);
+    }
+
+    public void testFun(View view){
+
     }
 
     public void restartFun(View view){
